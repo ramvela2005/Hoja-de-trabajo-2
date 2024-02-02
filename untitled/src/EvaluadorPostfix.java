@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Stack;
+
 public class EvaluadorPostfix {
 
     public static int evaluarExpresion(String expresion) {
@@ -22,5 +23,16 @@ public class EvaluadorPostfix {
 
         return pila.pop();
     }
-}
 
+    private static boolean esOperando(String elemento) {
+        return elemento.matches("\\d+");
+    }
+
+    private static boolean esOperador(String elemento) {
+        return elemento.matches("[+\\-*/]");
+    }
+
+
+
+
+}
