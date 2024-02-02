@@ -50,6 +50,18 @@ public class EvaluadorPostfix {
                 throw new IllegalArgumentException("Operador no reconocido: " + operador);
         }
     }
+
+    public static void main(String[] args) {
+        try (BufferedReader br = new BufferedReader(new FileReader("datos.txt"))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                int resultado = evaluarExpresion(linea);
+                System.out.println("Resultado: " + resultado);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
 
 
