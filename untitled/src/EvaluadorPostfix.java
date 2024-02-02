@@ -32,7 +32,24 @@ public class EvaluadorPostfix {
         return elemento.matches("[+\\-*/]");
     }
 
-
-
-
+    private static int aplicarOperacion(int operandoA, int operandoB, String operador) {
+        switch (operador) {
+            case "+":
+                return operandoA + operandoB;
+            case "-":
+                return operandoA - operandoB;
+            case "*":
+                return operandoA * operandoB;
+            case "/":
+                if (operandoB != 0) {
+                    return operandoA / operandoB;
+                } else {
+                    throw new ArithmeticException("División por cero");
+                }
+            default:
+                throw new IllegalArgumentException("Operador no reconocido: " + operador);
+        }
+    }
 }
+
+
